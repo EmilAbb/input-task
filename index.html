@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İnput</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <label for="maxValue">Tələbənin Qiyməti :</label>
+  <input id="maxValue" type="number" name="value" value="1">
+  <br>
+  <div class="progresBar">
+    <div id="bar"></div>
+  </div>
+  <br>
+  <label for="value">Qiymət şkalası :</label>
+  <input id="value" type="number" name="value" value="100">
+  <script>
+
+    let maxValue = document.getElementById('maxValue')
+    let value = document.getElementById('value').value
+    let progresBar = document.querySelector('.progresBar')
+    let bar = document.querySelector('#bar')
+
+
+    
+    maxValue.addEventListener('click', function(e){
+      let ratio = +(e.target.value / value)*100
+      // progresBar.style.width = ratio + '%'
+      if (ratio > 0 && ratio <= 50) {
+        progresBar.style.backgroundColor = 'red';
+        progresBar.style.width = ratio + '%';
+      
+      }
+      else if ( ratio > 50 &&  ratio <= 75 ) {
+        progresBar.style.backgroundColor = 'yellow'
+        progresBar.style.width =ratio + '%'
+      } else {
+        progresBar.style.backgroundColor = 'green'
+        progresBar.style.width = ratio + '%'
+      }
+
+    })
+  </script>
+</body>
+
+</html>
